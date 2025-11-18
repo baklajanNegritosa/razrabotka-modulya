@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .controls { margin-bottom: 20px; }
+        input, button { padding: 10px; margin: 5px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Мои задачи</h1>
+    <div class="controls">
+        <input type="text" id="search" placeholder="Поиск задачи...">
+        <button onclick="filterTasks()">Фильтр</button>
+        <button onclick="openAddTaskModal()">Добавить задачу</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Статус</th>
+                <th>Срок</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody id="tasks-list">
+            <tr>
+                <td>Подготовить отчёт</td>
+                <td>В работе</td>
+                <td>2025-12-01</td>
+                <td>
+                    <button onclick="editTask(1)">Изменить</button>
+                    <button onclick="deleteTask(1)">Удалить</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Позвонить клиенту</td>
+                <td>Завершена</td>
+                <td>2025-11-20</td>
+                <td>
+                    <button onclick="editTask(2)">Изменить</button>
+                    <button onclick="deleteTask(2)">Удалить</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Модальное окно для добавления задачи -->
+    <div id="add-task-modal" style="display:none; border:1px solid #ccc; padding:20px; margin:20px 0;">
+        <h3>Новая задача</h3>
+        <input type="text" placeholder="Название">
+        <textarea placeholder="Описание"></textarea>
+        <input type="date">
+        <select>
+            <option value="low">Низкий</option>
+            <option value="medium">Средний</option>
+            <option value="high">Высокий</option>
+        </select>
+        <button onclick="saveTask()">Сохранить</button>
+        <button onclick="closeAddTaskModal()">Закрыть</button>
+    </div>
+
+    <script>
+        function openAddTaskModal() {
+            document.getElementById('add-task-modal').style.display = 'block';
+        }
+        function closeAddTaskModal() {
+            document.getElementById('add-task-modal').style.display = 'none';
+        }
+        function filterTasks() { alert('Фильтр применён!'); }
+        function editTask(id) { alert('Редактирование задачи ' + id); }
+        function deleteTask(id) { alert('Задача ' + id + ' удалена!'); }
+        function saveTask() { alert('Задача сохранена!'); }
+    </script>
+</body>
+</html>
 
