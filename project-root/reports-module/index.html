@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчёты</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .report-section { margin-bottom: 30px; }
+        button { padding: 10px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218837; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #e9ecef; }
+    </style>
+</head>
+<body>
+    <h1>Отчёты по задачам</h1>
 
+    <div class="report-section">
+        <h2>Статистика выполнения</h2>
+        <p>Всего задач: 15</p>
+        <p>Завершено: 10 (66.7%)</p>
+        <p>В работе: 5</p>
+        <button onclick="generatePdfReport()">Экспорт в PDF</button>
+        <button onclick="exportToCsv()">Экспорт в CSV</button>
+    </div>
+
+    <div class="report-section">
+        <h2>Отчёт за период</h2>
+        <input type="date" id="start-date">
+        <input type="date" id="end-date">
+        <button onclick="applyDateFilter()">Применить</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Задача</th>
+                    <th>Статус</th>
+                    <th>Исполнитель</th>
+                    <th>Срок</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Отчёт по продажам</td>
+                    <td>Завершена</td>
+                    <td>Иван Петров</td>
+                    <td>2025-11-15</td>
+                </tr>
+                <tr>
+                    <td>Тестирование API</td>
+                    <td>В работе</td>
+                    <td>Анна Сидорова</td>
+                    <td>2025-11-25</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function generatePdfReport() { alert('
